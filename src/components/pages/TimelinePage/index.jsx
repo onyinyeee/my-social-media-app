@@ -3,8 +3,8 @@ import {useContext, useEffect, useState} from 'react';
 import { PostCard } from "../../PostCard";
 import SMContext from "../../../context/SMContext";
 //import { Search } from "../../search";
-//import { getAuth, onAuthStateChanged  } from "@firebase/auth";
-//import { useHistory } from "react-router-dom";
+import { getAuth, onAuthStateChanged  } from "@firebase/auth";
+import { useHistory } from "react-router-dom";
 
 
 export const TimelinePage = () => {
@@ -12,6 +12,19 @@ export const TimelinePage = () => {
 const [posts, setPosts] = useState([]); 
 const [loading, setLoading] = useState(true);
 const globalState = useContext(SMContext);
+
+const history = useHistory();
+
+useEffect(
+    () => {
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          history.push('/login');
+        }
+      })
+    }, []
+  );
 
   
 
@@ -46,7 +59,7 @@ const globalState = useContext(SMContext);
   
   return (
     <div className="posts-page">
-      <h1 className="posts-title"> Studio Ghibli Movie List</h1>
+      <h1 className="posts-title"> My feed</h1>
      
       <div className="posts-container">
        {

@@ -16,8 +16,9 @@ export const PostCard = (props) => {
             </Link>
             <img className="post-image" src={image} alt={username  + "photo"}/>
             
-            <p className = "post-caption"> {caption}</p>
-            <p className= "post-user"> {username} </p>
+            <h4 className = "post-caption"> {username}   <p className='post-captionText'>{caption}</p>
+              </h4>
+            
 
         </div>
     )

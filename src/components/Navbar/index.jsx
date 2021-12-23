@@ -2,6 +2,7 @@ import {
     NavLink
 }from 'react-router-dom';
 import "./styles.css";
+import { Logout } from "../Logout";
 
 
 
@@ -11,14 +12,21 @@ export const Navbar = () => {
             <ul className="navbar-list">
                 <li>
                 <NavLink exact={true} activeClassName="nav-selected" className="netLogo" to="/">
-                    profile
+                   timeline
                     </NavLink>
                    
                 </li>
                 <li>
-                    <NavLink exact={true} activeClassName="nav-selected" to="/profile">
-                    Home
+                    <NavLink  activeClassName="nav-selected" className="netLogo" to="/profile">
+                    profile
                     </NavLink>
+                </li>
+
+                <li>
+                    <Logout/>
+                </li>
+                <li>
+                    <NavLink activeClassName="nav-selected" to="/addpost"> Add New Post</NavLink>
                 </li>
                 
             </ul>

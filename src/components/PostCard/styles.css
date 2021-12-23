@@ -1,0 +1,52 @@
+.post-image{
+        width: 700px;
+        height:700px;
+        object-fit: cover;
+        margin-bottom: 5px;
+        align-items: center;
+       
+    
+}
+
+.post-user{
+    font-size: 1.3rem;
+    padding: 8px;
+    color: rgb(214, 214, 214);
+    background: rgb(132, 110, 153);
+
+    
+}
+
+.post-username{
+    font-size: 1.3rem;
+    padding: 5px;
+    color: rgb(214, 214, 214);
+}
+
+.post {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+   grid-gap: 10px 10px;
+   margin-left: 20rem;
+   margin-bottom: 2rem;
+   margin-top: 2rem;
+   border-top: blanchedalmond;
+   border-bottom: blanchedalmond;
+   border-style:ridge;
+   margin-right: 20rem;
+   border-left: hidden;
+   border-right: hidden;
+   border-top: hidden;
+   border-bottom: hidden;
+}
+
+.post-caption {
+    font-size: 30px;
+    color: cornsilk;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.post-captionText {
+    font-size: 20px;
+    font-weight: 100;
+}

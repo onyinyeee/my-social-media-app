@@ -6,6 +6,10 @@ import {
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
 import { TimelinePage } from './components/pages/TimelinePage';
+import {ProfilePage} from './components/pages/ProfilePage';
+import {NewPostPage} from './components/pages/NewPostPage';
+import { LoginPage } from './components/pages/LoginPage';
+
 
 
 function App() {
@@ -17,7 +21,16 @@ function App() {
         <TimelinePage/>
         </Route>
         <Route path="/profile">
-       <p> my homepage </p>
+       <ProfilePage/>
+        </Route>
+        <Route path="/profile/:id">
+       <ProfilePage/>
+        </Route>
+        <Route path="/profile/addpost">
+       <NewPostPage/>
+        </Route>
+        <Route path="/login">
+        <LoginPage/>
         </Route>
       </Switch>
     </Router>
