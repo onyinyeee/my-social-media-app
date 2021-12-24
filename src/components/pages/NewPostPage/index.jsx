@@ -1,14 +1,33 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { getAuth, onAuthStateChanged  } from "@firebase/auth";
+import {useContext, useEffect, useState} from 'react';
+import { PostCard } from "../../PostCard";
+import SMContext from "../../../context/SMContext";
+
 
 import "./styles.css";
 
-import { useState } from "react";
 
 export const NewPostPage = () => {
 
     const { register, handleSubmit } = useForm();
     const history = useHistory();
+
+    const globalState = useContext(SMContext);
+
+
+
+useEffect(
+  () => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        history.push('/login');
+      }
+    })
+  }, []
+);
 
     const submitPost = async (formVals) => {
         const formattedData = {
@@ -25,6 +44,9 @@ export const NewPostPage = () => {
                 
                 image: {
                     stringValue: formVals.image
+                },
+                email: {
+                    stringValue: formVals.email
                 },
             }
         }
@@ -48,14 +70,18 @@ export const NewPostPage = () => {
 
     return (
         <div className = "posts-page">
-            <form className="form-layout">
-                <h2> Submit a new pet: </h2>
+            <form className="form-layout" onSubmit={handleSubmit(submitPost)}>
+                <h2> Add a new pet </h2>
                 <br/>
-
-
 
                 <label htmlFor="username"> Username</label>
                 <input {...register("username")} name="username" required type="text" />
+
+                <label htmlFor="email"> Email</label>
+                <input
+                {...register("email")}
+                name="email"
+                required />
                
 
                 <label htmlFor="image"> Image  Url</label>
@@ -64,13 +90,13 @@ export const NewPostPage = () => {
                 name="image"
                 required />
 
-<label htmlFor="\caption"> caption</label>
+                <label htmlFor="caption"> caption</label>
                 <input
                 {...register("caption")}
                 name="caption"
                 required />
 
-<label htmlFor="id"> Unique ID</label>
+                <label htmlFor="id"> Unique ID</label>
                 <input
                 {...register("id")}
                 name="id"

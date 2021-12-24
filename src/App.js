@@ -7,7 +7,7 @@ import {
 import { Navbar } from './components/Navbar';
 import { TimelinePage } from './components/pages/TimelinePage';
 import {ProfilePage} from './components/pages/ProfilePage';
-import {NewPostPage} from './components/pages/NewPostPage';
+import { NewPostPage } from './components/pages/NewPostPage';
 import { LoginPage } from './components/pages/LoginPage';
 
 
@@ -20,14 +20,14 @@ function App() {
         <Route exact path="/">
         <TimelinePage/>
         </Route>
-        <Route path="/profile">
+        <Route path="/me">
+        <ProfilePage/>
+        </Route>
+        <Route path="/me/:id">
        <ProfilePage/>
         </Route>
-        <Route path="/profile/:id">
-       <ProfilePage/>
-        </Route>
-        <Route path="/profile/addpost">
-       <NewPostPage/>
+        <Route path="/addpost">
+          <NewPostPage/>
         </Route>
         <Route path="/login">
         <LoginPage/>

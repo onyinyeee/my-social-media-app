@@ -17,7 +17,7 @@ export const Navbar = () => {
                    
                 </li>
                 <li>
-                    <NavLink  activeClassName="nav-selected" className="netLogo" to="/profile">
+                    <NavLink  activeClassName="nav-selected" className="netLogo" to="/me">
                     profile
                     </NavLink>
                 </li>
