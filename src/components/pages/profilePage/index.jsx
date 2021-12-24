@@ -87,7 +87,7 @@ useEffect(
       
     <div className="posts-page">
         <p>{user.email}</p>
-      <h1 className="posts-title"> My Posts</h1>
+      <h1 className="posts-title"> My Profile post</h1>
       <h1 className="posts-title"> {user}</h1>
      
       <div className="posts-container">
